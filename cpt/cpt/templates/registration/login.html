@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="row-fluid">
+		<div class="span4">
+		</div>
+		<div class="span4">
+		  {% if form.errors %}
+			<p class="error">Sorry, that's not a valid username or password</p>
+		  {% endif %}
+		  	
+		  <form class="form-horizontal" action="" method="post">{% csrf_token %}
+		  	<div class="control-group">
+			<label class="control-label" for="username">User name:</label>
+				<div class = "controls">
+				<input type="text" name="username" value="" id="username">
+				</div>
+			</div>
+			<div class="control-group">
+			<label class="control-label" for="password">Password:</label>
+				<div class = "controls">
+				<input type="password" name="password" value="" id="password">
+				</div>
+			</div>
+			<div class="control-group">
+				<div class = "controls">
+				<input class="btn" type="submit" value="login" />
+				</div>
+			</div>
+			<input type="hidden" name="next" value="/index" />
+		  </form>
+		  	
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+  
+
+{% endblock %}
