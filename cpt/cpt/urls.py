@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from cpt import views
 from cpt import settings
 from recruit.views import index
-from contact.views import contact_list, contact_one, contact_me, contact_edit, contact_email
+from contact.views import contact_list, contact_one, contact_me, contact_edit
 
 from django.contrib.auth.views import login, logout
 # Uncomment the next two lines to enable the admin:
@@ -31,5 +31,5 @@ urlpatterns = patterns('',
     url(r'^contact/me/$', contact_me),
     url(r'^contact/edit/$', contact_edit),
     url(r'^contact/(\d+)/$', contact_one),
-    url(r'^contact/(\d+)/email/$', contact_email),
+    #url(r'^contact/(\d+)/email/$', contact_email),
 )
