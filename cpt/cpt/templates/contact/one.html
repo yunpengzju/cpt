@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Culture promotion team{% endblock %}
+
+{% block content %}
+
+<form method="post" action="">
+	{{ result }}
+</form>
+
+{% if isme %}
+<p><a href="/contact/edit/">修改资料</a></p>
+{% endif %}
+
+<p><a href="/contact/">返回</a></p>
+
+{% endblock %}

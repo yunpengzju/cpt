@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Culture promotion team{% endblock %}
+
+{% block content %}
+
+<h1>队员名单</h1>
+
+<p>注：下面可以用表格</p>
+<ul>
+{% for item in result %}
+	<li><a href="/contact/{{item.number}}">{{ item.name }} {{ item.apartment }}</a></li>
+{% endfor %}
+</ul>
+
+<p><a href="/contact/me/">查看自己</a></p>
+
+{% endblock %}
