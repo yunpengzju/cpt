@@ -8,4 +8,4 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS
 
 @permission_required('recruit.go_anywhere', login_url="/login/")
 def index(request):
-	return render_to_response('recruit/index.html',context_instance=RequestContext(request))
+    return render_to_response('recruit/index.html',context_instance=RequestContext(request))
