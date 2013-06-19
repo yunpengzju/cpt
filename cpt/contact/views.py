@@ -18,7 +18,7 @@ def contact_list(request):
 @permission_required('contact.is_member', login_url="/login/")
 def contact_one(request, contact_id):
     try:
-        result = ContactForm(instance = Contact.objects.get(number=contact_id));
+        result = Contact.objects.get(number=contact_id);
         return render_to_response('contact/one.html', locals(), context_instance=RequestContext(request))
     except Contact.DoesNotExist:
         return HttpResponseRedirect('/contact/')

@@ -4,12 +4,23 @@
 
 {% block content %}
 
-<form action="/contact/edit/" method="post">
-	{% csrf_token %}
-	{{ form }}
-	<input type="submit" value="保存">
-</form>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4">
+		</div>
+		<div class="span4">
+			<form action="/contact/edit/" method="post">
+				{% csrf_token %}
+				{{ form }}
+				<input type="submit" value="保存">
+			</form>
 
-<p><a href="/contact/me/">返回</a></p>
+			<p><a href="/contact/me/">返回</a></p>
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+
 
 {% endblock %}

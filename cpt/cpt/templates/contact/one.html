@@ -3,15 +3,100 @@
 {% block title %}Culture promotion team{% endblock %}
 
 {% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4">
+		</div>
+		<div class="span4 ">
+			<h3 class="text-center">个人资料</h3>
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<th>
+						<label >姓名:</label>
+						</th>
+						<td>
+						<label >{{ result.name }}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_gender">性别:</label>
+						</th>
+						<td>
+						<label >{{ result.gender}}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_birthday">生日:</label>
+						</th>
+						<td>
+						<label >{{ result.birthday }}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_phone">手机:</label>
+						</th>
+						<td>
+						<label >{{ result.phone }}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_email">电子邮箱:</label>
+						</th>
+						<td>
+						<label >{{ result.email }}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_apartment">所属部门:</label>
+						</th>
+						<td>
+						<label >{{ result.apartment }}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_major">专业:</label>
+						</th>
+						<td>
+						<label >{{ result.major }}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_job">目前职业:</label>
+						</th>
+						<td>
+						<label >{{ result.job }}</label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+						<label for="id_place">居住地:</label>
+						</th>
+						<td>
+						<label >{{ result.place }}</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<label for="id_place">自我介绍:</label>
+			<p >{{ result.note }}</p>
+			{% if isme %}
+			<p><a href="/contact/edit/">修改资料</a></p>
+			{% endif %}
 
-<form method="post" action="">
-	{{ result }}
-</form>
+			<p><a href="/contact/">返回</a></p>
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
 
-{% if isme %}
-<p><a href="/contact/edit/">修改资料</a></p>
-{% endif %}
-
-<p><a href="/contact/">返回</a></p>
 
 {% endblock %}
