@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>{% block title %}CPT{% endblock %}</title>
+<!-- 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" content="text/html;charset=UTF-8" http-equiv="Content-type"></meta>
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="/site_media/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/site_media/css/bootstrap-responsive.min.css">
@@ -22,10 +25,10 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="brand" href="#">CPT</a>
+						<a class="brand" href="/index/">CPT</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active">
+							<li>
 							<a href="/contact/">Contact</a>
 							</li>
 							<li>
@@ -40,12 +43,13 @@
 					<div class="span4">
 						<ul class="nav">
 						{% if user.is_authenticated %}
-						  <li>
-							<a href="/contact/me/">个人资料</a>
-<!-- 
-
-						  	<a>Welcome, {{ user.username }}</a></li>
- -->
+							{% if perms.is_member %}
+							  <li>
+								<a href="/contact/me/">个人资料</a>
+							  </li>							
+							{% else %}
+							  <li><a>Welcome, {{ user.username }}</a></li>
+							{% endif %}
 						  <li>
 						  	<a href="/logout"> Logout</a>
 						  </li>

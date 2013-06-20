@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 from cpt import views
 from cpt import settings
-from recruit.views import index
+from recruit.views import recruit_index,recruit_add_info,recruit_edit
 from contact.views import contact_list, contact_one, contact_me, contact_edit
 
 from django.contrib.auth.views import login, logout
@@ -21,7 +21,6 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^register/$', views.register),
-    url(r'^join/$', index),
     url(r'^login/$',  login),
     url(r'^logout/$', views.logout_view),
     # Uncomment the next line to enable the admin:
@@ -32,4 +31,8 @@ urlpatterns = patterns('',
     url(r'^contact/edit/$', contact_edit),
     url(r'^contact/(\d+)/$', contact_one),
     #url(r'^contact/(\d+)/email/$', contact_email),
+    # recruit
+    url(r'^join/$', recruit_index),
+    url(r'^join/apply/$',recruit_add_info),
+    url(r'^join/edit/$' ,recruit_edit),
 )

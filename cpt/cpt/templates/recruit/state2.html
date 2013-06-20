@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Culture promotion team{% endblock %}
+
+{% block content %}
+<h2 class="text-center">笔试场次已确认</h2>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+		</div>
+		<div class="span8">
+			<div class="progress progress-success progress-striped">
+			  <div class="bar" style="width: 30%"></div>
+			</div>
+		</div>
+		<div class="span2">
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4">
+		</div>
+		<div class="span4">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>
+							笔试时间
+						</th>
+						<th>
+							笔试地点
+						</th>
+
+						<th>
+							备注
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							{{exam.exam_time }}
+						</td>
+						<td>
+							{{exam.location }}
+						</td>
+						<td>
+							{{exam.note}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
