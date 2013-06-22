@@ -90,6 +90,11 @@ def recruit_index(request):
 			iid   = inter.presentation_id
 			presentation = Presentation.objects.get(id = iid)
 			return render_to_response('recruit/state6.html',locals(),context_instance=RequestContext(request))
+        if inst.state == 7:
+			return render_to_response('recruit/state7.html',locals(),context_instance=RequestContext(request))
+        if inst.state == 8:
+			return render_to_response('recruit/state8.html',locals(),context_instance=RequestContext(request))
+
     except:
         is_exist = False
         return render_to_response('recruit/index.html',locals(),context_instance=RequestContext(request))

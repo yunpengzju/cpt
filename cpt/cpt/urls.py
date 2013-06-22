@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 from cpt import views
 from cpt import settings
-from recruit.views import recruit_index,recruit_add_info,recruit_edit,recruit_admin
+from recruit.views import recruit_index,recruit_add_info,recruit_edit, recruit_admin
 from contact.views import contact_list, contact_one, contact_me, contact_edit
 
 from django.contrib.auth.views import login, logout
