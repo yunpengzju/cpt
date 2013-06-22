@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Culture promotion team{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4">
+		</div>
+		<div class="span4 ">
+			<h3 class="text-center">任务信息</h3>
+
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<th><label>标题:</label>	</th>
+						<td><label>{{ result.title }}</label></td>
+					</tr>
+					<tr>
+						<th><label>日期:</label>	</th>
+						<td><label>{{ result.date }}</label></td>
+					</tr>
+					<tr>
+						<th><label>时间:</label>	</th>
+						<td><label>{{ result.time }}</label></td>
+					</tr>
+					<tr>
+						<th><label>参观者:</label>	</th>
+						<td><label>{{ result.client }}</label></td>
+					</tr>
+					<tr>
+						<th><label>参观人数:</label>	</th>
+						<td><label>{{ result.client_num }}</label></td>
+					</tr>
+					<tr>
+						<th><label>内容:</label>	</th>
+						<td><label>{{ result.content }}</label></td>
+					</tr>
+					<tr>
+						<th><label>任务来源:</label>	</th>
+						<td><label>{{ result.source }}</label></td>
+					</tr>
+					<tr>
+						<th><label>联系人称谓:</label>	</th>
+						<td><label>{{ result.contact_man }}</label></td>
+					</tr>
+					<tr>
+						<th><label>联系方式:</label>	</th>
+						<td><label>{{ result.contact_way }}</label></td>
+					</tr>
+					<tr>
+						<th><label>发布者:</label>	</th>
+						<td><label>{{ result.post_man }}</label></td>
+					</tr>
+					<tr>
+						<th><label>发布日期:</label>	</th>
+						<td><label>{{ result.post_date }}</label></td>
+					</tr>
+					<tr>
+						<th><label>优先级:</label></th>
+						<td><label>{{ result.priority }}</label></td>
+					</tr>
+					<tr>
+						<th><label>是否正装:</label></th>
+						<td><label>{{ result.formal }}</label></td>
+					</tr>
+					<tr>
+						<th><label>协调员预期人数:</label></th>
+						<td><label>{{ result.expect_xietiao }}</label></td>
+					</tr>
+					<tr>
+						<th><label>讲解员预期人数:</label></th>
+						<td><label>{{ result.expect_jiangjie }}</label></td>
+					</tr>
+				</tbody>
+			</table>
+			<label for="id_place">备注:</label>
+			<p >{{ result.note }}</p>
+
+			<p><a href="/task/">返回</a></p>
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+
+{% endblock %}
