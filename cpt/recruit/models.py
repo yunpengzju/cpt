@@ -58,3 +58,12 @@ class Interview_list(models.Model):
     interview_id  = models.IntegerField(verbose_name='面试场次')
     user_name= models.CharField(max_length=30,verbose_name='姓名')
     user_id  = models.IntegerField(verbose_name='注册号')
+class Presentation(models.Model):
+    presentation_time= models.CharField(max_length=30,verbose_name='展馆试时间')
+    location = models.CharField(max_length=30,verbose_name='展馆试地点')
+    max_num  = models.IntegerField(verbose_name='该场面试容量')
+    note     = models.TextField(blank=True,verbose_name='备注')
+class Presentation_list(models.Model):
+    presentation_id  = models.IntegerField(verbose_name='试讲场次')
+    user_name= models.CharField(max_length=30,verbose_name='姓名')
+    user_id  = models.IntegerField(verbose_name='注册号')

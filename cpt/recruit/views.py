@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import permission_required,login_required
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS
 
 from recruit.models import Candidate
-from recruit.models import CandidateForm,Exam,Exam_list,Interview,Interview_list
+from recruit.models import CandidateForm,Exam,Exam_list,Interview,Interview_list,Presentation,Presentation_list
 
 @login_required(login_url="/login/")
 def recruit_index(request):
@@ -67,6 +67,29 @@ def recruit_index(request):
 			iid   = inter.interview_id
 			interview = Interview.objects.get(id = iid)
 			return render_to_response('recruit/state4.html',locals(),context_instance=RequestContext(request))
+        if inst.state == 5:
+            if request.method == 'POST':    #remember to check the max_num
+                inter = Presentation.objects.get(id = request.POST.get('selection'))
+                if inter.max_num > 0:
+                    inter.max_num = inter.max_num-1
+                    inter.save()
+                    inter_list = Presentation_list(user_name = inst.real_name,user_id = inst.id, presentation_id = request.POST.get('selection'))
+                    inter_list.save()
+                    inst.state = 6
+                    inst.save()
+                    return HttpResponseRedirect('/join/')
+                else:
+                    message = "该场次已满，如无合适场次请联系负责人……"
+                    list = Presentation.objects.all()
+                    return render_to_response('recruit/state5.html',locals(),context_instance=RequestContext(request))
+            else:
+                list = Presentation.objects.all()
+                return render_to_response('recruit/state5.html',locals(),context_instance=RequestContext(request))
+        if inst.state == 6:
+			inter = Presentation_list.objects.get(user_id=inst.id)
+			iid   = inter.presentation_id
+			presentation = Presentation.objects.get(id = iid)
+			return render_to_response('recruit/state6.html',locals(),context_instance=RequestContext(request))
     except:
         is_exist = False
         return render_to_response('recruit/index.html',locals(),context_instance=RequestContext(request))
