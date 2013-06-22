@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Culture promotion team{% endblock %}
+
+{% block content %}
+<h2 class="text-center">面试场次已确认</h2>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+		</div>
+		<div class="span8">
+			<div class="progress progress-success progress-striped">
+			  <div class="bar" style="width: 55%"></div>
+			</div>
+		</div>
+		<div class="span2">
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4">
+		</div>
+		<div class="span4">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>
+							面试时间
+						</th>
+						<th>
+							面试地点
+						</th>
+
+						<th>
+							备注
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							{{interview.interview_time }}
+						</td>
+						<td>
+							{{interview.location }}
+						</td>
+						<td>
+							{{interview.note}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

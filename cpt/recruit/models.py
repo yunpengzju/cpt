@@ -47,3 +47,14 @@ class Exam(models.Model):
 class Exam_list(models.Model):
     exam_id  = models.IntegerField(verbose_name='考试场次')
     user_name= models.CharField(max_length=30,verbose_name='姓名')
+    user_id  = models.IntegerField(verbose_name='注册号')
+
+class Interview(models.Model):
+    interview_time= models.CharField(max_length=30,verbose_name='面试时间')
+    location = models.CharField(max_length=30,verbose_name='面试地点')
+    max_num  = models.IntegerField(verbose_name='该场面试容量')
+    note     = models.TextField(blank=True,verbose_name='备注')
+class Interview_list(models.Model):
+    interview_id  = models.IntegerField(verbose_name='面试场次')
+    user_name= models.CharField(max_length=30,verbose_name='姓名')
+    user_id  = models.IntegerField(verbose_name='注册号')
