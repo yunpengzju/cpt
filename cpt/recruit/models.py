@@ -9,25 +9,25 @@ class Recruit(models.Model):
             )
 
 class Candidate(models.Model):
-    user_name= models.CharField(max_length=30)
-    real_name= models.CharField(blank=True,max_length=30,verbose_name='姓名')
-    gender   = models.CharField(blank=True,max_length=10,verbose_name='性别')
-    birthday = models.DateField(blank=True,null = True,verbose_name='生日')
-    email    = models.EmailField(blank=True,verbose_name='电子邮件')
-    phone    = models.CharField(max_length=20,blank=True,verbose_name='电话')
-    homeland = models.CharField(blank=True,max_length = 10,verbose_name='家乡')
-    major    = models.CharField(blank=True,max_length = 20,verbose_name='专业')
-    speciality = models.CharField(blank=True,max_length = 40,verbose_name='特长')
-    note     = models.TextField(blank=True,verbose_name='自我介绍')
-    state    = models.IntegerField()
-    score    = models.IntegerField(blank=True,null = True)
-    remark1  = models.TextField(blank=True)
-    remark2  = models.TextField(blank=True)
-    remark3  = models.TextField(blank=True)
-    other    = models.TextField(blank=True)
-
-    def __unicode__(self):
-        return u'%s %s' % (self.user_name, self.real_name)
+	user_id  = models.IntegerField(verbose_name='注册号')
+	user_name= models.CharField(max_length=30)
+	real_name= models.CharField(blank=True,max_length=30,verbose_name='姓名')
+	gender   = models.CharField(blank=True,max_length=10,verbose_name='性别')
+	birthday = models.DateField(blank=True,null = True,verbose_name='生日')
+	email    = models.EmailField(blank=True,verbose_name='电子邮件')
+	phone    = models.CharField(max_length=20,blank=True,verbose_name='电话')
+	homeland = models.CharField(blank=True,max_length = 10,verbose_name='家乡')
+	major    = models.CharField(blank=True,max_length = 20,verbose_name='专业')
+	speciality = models.CharField(blank=True,max_length = 40,verbose_name='特长')
+	note     = models.TextField(blank=True,verbose_name='自我介绍')
+	state    = models.IntegerField()
+	score    = models.IntegerField(blank=True,null = True)
+	remark1  = models.TextField(blank=True)
+	remark2  = models.TextField(blank=True)
+	remark3  = models.TextField(blank=True)
+	other    = models.TextField(blank=True)
+	def __unicode__(self):
+		return u'%s %s' % (self.user_name, self.real_name)
 
 from django.forms import ModelForm
 from recruit.models import Candidate

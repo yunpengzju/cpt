@@ -28,12 +28,14 @@
 						<a class="brand" href="/index/">CPT</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
+						{% if perms.contact.is_member %}
 							<li>
 							<a href="/contact/">Contact</a>
 							</li>
 							<li>
 							<a href="#Tasks">Tasks</a>
 							</li>
+						{% endif %}
 							<li>
 							<a href="/join/">Join us</a>
 							</li>
@@ -43,7 +45,7 @@
 					<div class="span4">
 						<ul class="nav">
 						{% if user.is_authenticated %}
-							{% if perms.is_member %}
+							{% if perms.contact.is_member %}
 							  <li>
 								<a href="/contact/me/">个人资料</a>
 							  </li>							
@@ -74,8 +76,14 @@
 	{% endblock %}
 	
 	{% block footer %}
-    <hr>
-    <p class="text-center">Thanks for visiting my site.</p>
+	
+    <div id = "footer">
+    	<div class="container">
+    	<hr>
+    		<p class="text-center">Thanks for visiting my site.</p>
+    	</div>
+    </div>
+    
     {% endblock %}
   </body>
 </html>

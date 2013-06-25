@@ -108,7 +108,7 @@ def recruit_add_info(request):
             form.save()
             return HttpResponseRedirect('/join/')
     else:
-        p = Candidate(user_name = request.user.username, state = 0)
+        p = Candidate(user_name = request.user.username, user_id = request.user.id, state = 0)
         p.save()
         inst = Candidate.objects.get(user_name=request.user.username)
         form = CandidateForm(request.POST,instance = inst)
@@ -130,4 +130,12 @@ def recruit_edit(request):
         return HttpResponseRedirect('/join/')
 
 def recruit_admin(request):
-	return HttpResponseRedirect('/join/')
+	if request.user.is_superuser:
+		try:
+			list = Candidate.objects.all().filter(state__exact = 0)
+		except:
+			no_list = True
+			message = '没有待选择人选'
+		return render_to_response('recruit/admin_form.html', locals(),context_instance=RequestContext(request))
+	else:
+		return HttpResponseRedirect('/join/')
