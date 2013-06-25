@@ -2,7 +2,8 @@ from django.conf.urls import patterns, include, url
 
 from cpt import views
 from cpt import settings
-from recruit.views import recruit_index,recruit_add_info,recruit_edit, recruit_admin
+from recruit.views import recruit_index,recruit_add_info,recruit_edit
+from recruit.views import recruit_admin,recruit_admin_info,recruit_admin_exam,recruit_admin_interview,recruit_admin_presentation
 from contact.views import contact_list, contact_one, contact_me, contact_edit
 from task.views import task_list, task_new, task_one, task_edit, task_manage
 
@@ -37,6 +38,10 @@ urlpatterns = patterns('',
     url(r'^join/apply/$',recruit_add_info),
     url(r'^join/edit/$' ,recruit_edit),
     url(r'^join/admin/$',recruit_admin),
+    url(r'^join/admin/info/$',recruit_admin_info),
+    url(r'^join/admin/exam/$',recruit_admin_exam),
+    url(r'^join/admin/interview/$',recruit_admin_interview),
+    url(r'^join/admin/presentation/$',recruit_admin_presentation),
     # task
     url(r'^task/$', task_list),
     url(r'^task/new/$', task_new),

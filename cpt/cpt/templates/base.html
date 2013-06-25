@@ -39,6 +39,11 @@
 							<li>
 							<a href="/join/">Join us</a>
 							</li>
+						{% if user.is_superuser%}
+							<li>
+							<a href="/join/admin">Recruit Admin</a>
+							</li>
+						{%endif%}
 						</ul>
 						</div>
 					</div>
