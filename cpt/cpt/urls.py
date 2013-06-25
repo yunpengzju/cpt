@@ -4,6 +4,7 @@ from cpt import views
 from cpt import settings
 from recruit.views import recruit_index,recruit_add_info,recruit_edit, recruit_admin
 from contact.views import contact_list, contact_one, contact_me, contact_edit
+from task.views import task_list, task_new, task_one, task_edit, task_manage
 
 from django.contrib.auth.views import login, logout
 # Uncomment the next two lines to enable the admin:
@@ -36,4 +37,10 @@ urlpatterns = patterns('',
     url(r'^join/apply/$',recruit_add_info),
     url(r'^join/edit/$' ,recruit_edit),
     url(r'^join/admin/$',recruit_admin),
+    # task
+    url(r'^task/$', task_list),
+    url(r'^task/new/$', task_new),
+    url(r'^task/(\d+)/$', task_one),
+    url(r'^task/(\d+)/edit/$', task_edit),
+    url(r'^task/(\d+)/manage/$', task_manage),
 )
