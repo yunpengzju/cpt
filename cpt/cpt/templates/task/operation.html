@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Culture promotion team{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4">
+		</div>
+		<div class="span4 ">
+			<h3 class="text-center">任务信息</h3>
+
+			<ul>
+			<p>队员</p>
+				<li><a href="/task/{{ task_id }}/jj/">报名讲解员</a></li>
+				<li><a href="/task/{{ task_id }}/xt/">报名协调员</a></li>
+				<li><a href="/task/">返回</a></li>
+			<p>发布者</p>
+				<li><a href="/task/{{ task_id }}/edit/">修改资料</a></li>
+			<p>管理员</p>
+				<li><a href="/task/{{ task_id }}/close/">截至报名</a></li>
+			</ul>
+
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+
+{% endblock %}
