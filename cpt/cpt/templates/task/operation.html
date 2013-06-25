@@ -21,6 +21,46 @@
 				<li><a href="/task/{{ task_id }}/close/">截至报名</a></li>
 			</ul>
 
+			<p>协调员报名名单</p>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>姓名</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in xietiao %}
+					<tr>
+						<td><a href="/contact/{{ item.member }}">{{ item.member }}</a></td>
+						<td><a href="/contact/{{ item.member }}">{{ item.name }}</a></td>
+						<td><a href="/task/{{ task_id }}/del-xt/{{ item.member }}/">删除</a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			<p>讲解员报名名单</p>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>姓名</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in jiangjie %}
+					<tr>
+						<td><a href="/contact/{{ item.member }}">{{ item.member }}</a></td>
+						<td><a href="/contact/{{ item.member }}">{{ item.name }}</a></td>
+						<td><a href="/task/{{ task_id }}/del-xt/{{ item.member }}/">删除</a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
 		</div>
 		<div class="span4">
 		</div>

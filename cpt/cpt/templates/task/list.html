@@ -26,40 +26,21 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>
-							标题
-						</th>
-						<th>
-							日期
-						</th>
-						<th>
-							发布者
-						</th>
-						<th>
-							详细信息
-						</th>
-						<th>
-							操作
-						</th>
+						<th>标题	</th>
+						<th>日期	</th>
+						<th>发布者</th>
+						<th>详细信息</th>
+						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for item in result %}
 					<tr>
-						<td>
-							{{ item.title }}
-						</td>
-						<td>
-							{{ item.date|date:"Y年m月d日" }}
-						</td>
-						<td>
-							<a href="/contact/{{ item.post_id }}">{{ item.post_man }}</a>
-						</td>
-						<td>
-							<a href="/task/{{ item.post_id }}">full story</a>
-						</td>
-						<td>
-							<a href="/task/{{ item.id }}/operation/">
+						<td>{{ item.title }}</td>
+						<td>{{ item.date|date:"Y年m月d日" }}</td>
+						<td><a href="/contact/{{ item.post_id }}">{{ item.post_man }}</a></td>
+						<td><a href="/task/{{ item.post_id }}">full story</a></td>
+						<td><a href="/task/{{ item.id }}/operation/">
 							{% ifequal item.state 0 %}
 								接受报名
 							{% else %}
@@ -73,8 +54,7 @@
 							{% endifequal %}
 							{% endifequal %}
 							{% endifequal %}
-							</a>
-						</td>
+						</a></td>
 					</tr>
 					{% endfor %}
 				</tbody>

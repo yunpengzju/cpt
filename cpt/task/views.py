@@ -65,14 +65,18 @@ def task_edit(request, task_id):
 @permission_required('task.is_member', login_url="/login/")
 def task_operation(request, task_id):
     xietiao = Xietiao.objects.filter(task = task_id)
-#    for item in xietiao:
-#        try:
-#            item
-#        except Contact.DoesNotExist:
+    for item in xietiao:
+        try:
+            item.name = Contact.objects.get(nickname = request.user.username).name
+        except Contact.DoesNotExist:
+            del item
 
-    
     jiangjie = Jiangjie.objects.filter(task = task_id)
-    print jiangjie[0].task
+    for item in jiangjie:
+        try:
+            item.name = Contact.objects.get(nickname = request.user.username).name
+        except Contact.DoesNotExist:
+            del item
     
     return render_to_response('task/operation.html', locals(), context_instance=RequestContext(request))
 
