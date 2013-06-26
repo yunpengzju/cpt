@@ -134,76 +134,39 @@ def recruit_admin(request):
 
 
 def recruit_admin_info(request):
-	if request.user.is_superuser:
-		if request.method == 'POST':
-			admin_function(request)
-			return HttpResponseRedirect('/join/admin/exam/')
-		else:
-			try:
-				list = Candidate.objects.all().filter(state__exact = 0).order_by('id')
-				url = 'exam'
-			except:
-				no_list = True
-				message = '没有待选择人选'
-			return render_to_response('recruit/admin_form.html', locals(),context_instance=RequestContext(request))
-	else:
-		return HttpResponseRedirect('/join/')
+	res = admin_fun(request,0,'info')
+	return res
 def recruit_admin_exam(request):
+	res = admin_fun(request,2,'exam')
+	return res
+def recruit_admin_interview(request):
+	res = admin_fun(request,4,'interview')
+	return res
+def recruit_admin_presentation(request):
+	res = admin_fun(request,6,'presentation')
+	return res
+
+def admin_fun(request,state,path):
 	if request.user.is_superuser:
 		if request.method == 'POST':
-			admin_function(request)
+			accept_list = request.REQUEST.getlist('accept')
+			refuse_list = request.REQUEST.getlist('refuse')
+			for item in accept_list:
+				inst = Candidate.objects.get(user_name=item)
+				inst.state = inst.state + 1
+				inst.save()
+			for item in refuse_list:
+				inst1 = Candidate.objects.get(user_name=items)
+				inst1.state = 8
+				inst1.save()
 			return HttpResponseRedirect('/join/admin/exam/')
 		else:
 			try:
-				list = Candidate.objects.all().filter(state__exact = 2).order_by('id')
-				url = 'exam'
+				list = Candidate.objects.all().filter(state__exact = state).order_by('id')
+				url = path
 			except:
 				no_list = True
 				message = '没有待选择人选'
 			return render_to_response('recruit/admin_form.html', locals(),context_instance=RequestContext(request))
 	else:
 		return HttpResponseRedirect('/join/')
-
-def recruit_admin_interview(request):
-	if request.user.is_superuser:
-		if request.method == 'POST':
-			admin_function(request)
-			return HttpResponseRedirect('/join/admin/interview/')
-		else:
-			try:
-				list = Candidate.objects.all().filter(state__exact = 4).order_by('id')
-				url = 'interview'
-			except:
-				no_list = True
-				message = '没有待选择人选'
-			return render_to_response('recruit/admin_form.html', locals(),context_instance=RequestContext(request))
-	else:
-		return HttpResponseRedirect('/join/')
-
-def recruit_admin_presentation(request):
-	if request.user.is_superuser:
-		if request.method == 'POST':
-			admin_function(request)
-			return HttpResponseRedirect('/join/admin/presentation/')
-		else:
-			try:
-				list = Candidate.objects.all().filter(state__exact = 6).order_by('id')
-				url = 'presentation'
-			except:
-				no_list = True
-				message = '没有待选择人选'
-			return render_to_response('recruit/admin_form.html', locals(),context_instance=RequestContext(request))
-	else:
-		return HttpResponseRedirect('/index/')
-	
-def admin_function(request):
-	accept_list = request.REQUEST.getlist('accept')
-	refuse_list = request.REQUEST.getlist('refuse')
-	for item in accept_list:
-		inst = Candidate.objects.get(user_name=request.user.username)
-		inst.state = inst.state + 1
-		inst.save()
-	for item in refuse_list:
-		inst1 = Candidate.objects.get(user_name=request.user.username)
-		inst1.state = 8
-		inst1.save()
