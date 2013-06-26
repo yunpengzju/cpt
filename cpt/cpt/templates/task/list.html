@@ -13,51 +13,52 @@
 			</h3>
 		</div>
 		<div class="span4">
-		<br>
-			<a class = "btn btn-info" href="/task/new/">新建任务<a>
 		</div>
 	</div>
 </div>
-
-
 
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span3">
 		</div>
 		<div class="span6">
+			<p><a href="/task/new/">新建任务</a></p>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>
-							标题
-						</th>
-						<th>
-							日期
-						</th>
-						<th>
-							发布者
-						</th>
-						<th>
-							详细信息
-						</th>
+						<th>标题</th>
+						<th>日期</th>
+						<th>发布者</th>
+						<th>详细信息</th>
+						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for item in result %}
 					<tr>
-						<td>
-							{{ item.title }}
-						</td>
-						<td>
-							{{ item.date }}
-						</td>
-						<td>
-							<a href="/contact/{{ item.post_id }}">{{ item.post_man }}</a>
-						</td>
-						<td>
-							<a href="/task/{{ item.id }}">full story</a>
-						</td>
+						<td>{{ item.title }}</td>
+						<td>{{ item.date|date:"Y年m月d日" }}</td>
+						<td><a href="/contact/{{ item.post_id }}">{{ item.post_man }}</a></td>
+						<td><a href="/task/{{ item.post_id }}">full story</a></td>
+						<td><a href="/task/{{ item.id }}/operation/">
+							{% ifequal item.state 0 %}
+								接受报名
+							{% else %}
+							{% ifequal item.state 1 %}
+								报名截至
+							{% else %}
+							{% ifequal item.state 2 %}
+								联系完毕
+							{% else %}
+							{% ifequal item.state 3 %}
+								任务完成
+							{% else %}
+								任务取消
+							{% endifequal %}
+							{% endifequal %}
+							{% endifequal %}
+							{% endifequal %}
+						</a></td>
 					</tr>
 					{% endfor %}
 				</tbody>
