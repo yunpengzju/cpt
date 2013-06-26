@@ -10,6 +10,26 @@
 		<div class="span4 ">
 			<h3 class="text-center">任务信息</h3>
 
+			<p>状态：
+				{% ifequal task.state 0 %}
+					接受报名
+				{% else %}
+				{% ifequal task.state 1 %}
+					报名截至
+				{% else %}
+				{% ifequal task.state 2 %}
+					联系完毕
+				{% else %}
+				{% ifequal task.state 3 %}
+					任务完成
+				{% else %}
+					任务取消
+				{% endifequal %}
+				{% endifequal %}
+				{% endifequal %}
+				{% endifequal %}
+			</p>
+
 			<ul>
 			<p>队员</p>
 				<li><a href="/task/{{ task_id }}/jj/">报名讲解员</a></li>
@@ -19,6 +39,10 @@
 				<li><a href="/task/{{ task_id }}/edit/">修改资料</a></li>
 			<p>管理员</p>
 				<li><a href="/task/{{ task_id }}/close/">截至报名</a></li>
+			<p>讲解员/协调员</p>
+				<li><a href="/task/{{ task_id }}/contacted/">联系完毕</a></li>
+				<li><a href="/task/{{ task_id }}/cancel/">任务取消</a></li>
+				<li><a href="/task/{{ task_id }}/success/">任务完成</a></li>
 			</ul>
 
 			<p>协调员报名名单</p>
@@ -55,7 +79,7 @@
 					<tr>
 						<td><a href="/contact/{{ item.member }}">{{ item.member }}</a></td>
 						<td><a href="/contact/{{ item.member }}">{{ item.name }}</a></td>
-						<td><a href="/task/{{ task_id }}/del-xt/{{ item.member }}/">删除</a></td>
+						<td><a href="/task/{{ task_id }}/del-jj/{{ item.member }}/">删除</a></td>
 					</tr>
 					{% endfor %}
 				</tbody>

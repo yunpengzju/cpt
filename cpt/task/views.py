@@ -64,21 +64,26 @@ def task_edit(request, task_id):
 
 @permission_required('task.is_member', login_url="/login/")
 def task_operation(request, task_id):
-    xietiao = Xietiao.objects.filter(task = task_id)
-    for item in xietiao:
-        try:
-            item.name = Contact.objects.get(nickname = request.user.username).name
-        except Contact.DoesNotExist:
-            del item
+    try:
+        task = Task.objects.get(id=task_id)
+        
+        xietiao = Xietiao.objects.filter(task = task_id)
+        for item in xietiao:
+            try:
+                item.name = Contact.objects.get(number = item.member).name
+            except Contact.DoesNotExist:
+                del item
 
-    jiangjie = Jiangjie.objects.filter(task = task_id)
-    for item in jiangjie:
-        try:
-            item.name = Contact.objects.get(nickname = request.user.username).name
-        except Contact.DoesNotExist:
-            del item
+        jiangjie = Jiangjie.objects.filter(task = task_id)
+        for item in jiangjie:
+            try:
+                item.name = Contact.objects.get(number = item.member).name
+            except Contact.DoesNotExist:
+                del item
     
-    return render_to_response('task/operation.html', locals(), context_instance=RequestContext(request))
+        return render_to_response('task/operation.html', locals(), context_instance=RequestContext(request))
+    except Task.DoesNotExist:
+        return HttpResponseRedirect('/task/')
 
 @permission_required('task.is_manage', login_url="/task/")
 def task_close(request, task_id):
@@ -94,11 +99,13 @@ def task_close(request, task_id):
 
 @permission_required('task.is_manage', login_url="/task/")
 def task_del_jj(request, task_id, member_id):
-    return
+    Jiangjie.objects.filter(task=task_id, member=member_id).delete()
+    return HttpResponseRedirect('/task/'+str(task_id)+'/operation/')
 
 @permission_required('task.is_manage', login_url="/task/")
 def task_del_xt(request, task_id, member_id):
-    return
+    Xietiao.objects.filter(task=task_id, member=member_id).delete()
+    return HttpResponseRedirect('/task/'+str(task_id)+'/operation/')
 
 @permission_required('task.is_member', login_url="/login/")
 def task_jj(request, task_id):
@@ -137,15 +144,57 @@ def task_xt(request, task_id):
 
 @permission_required('task.is_member', login_url="/login/")
 def task_contacted(request, task_id):
-    return
+    try:
+        task = Task.objects.get(id=task_id)
+        member = Contact.objects.get(nickname=request.user.username)
+        jj = Jiangjie.objects.filter(task=task_id, member=member.number).count()
+        xt = Xietiao.objects.filter(task=task_id, member=member.number).count()
+        # 协调员或讲解员在状态1下有权限
+        if (jj != 0 or xt != 0) and task.state == 1:
+            print "why here"
+            task.state = 2;
+            task.save()
+        return HttpResponseRedirect('/task/'+str(task_id)+'/operation/')
+    except Task.DoesNotExist:
+        return HttpResponseRedirect('/task/')
+    except Contact.DoesNotExist:
+        return HttpResponseRedirect('/task/')
 
 @permission_required('task.is_member', login_url="/login/")
 def task_cancel(request, task_id):
-    return
+    try:
+        task = Task.objects.get(id=task_id)
+        member = Contact.objects.get(nickname=request.user.username)
+        jj = Jiangjie.objects.filter(task=task_id, member=member.number).count()
+        xt = Xietiao.objects.filter(task=task_id, member=member.number).count()
+        # 协调员或讲解员在状态2下有权限
+        if (jj != 0 or xt != 0) and task.state == 2:
+            print "why here"
+            task.state = 4;
+            task.save()
+        return HttpResponseRedirect('/task/'+str(task_id)+'/operation/')
+    except Task.DoesNotExist:
+        return HttpResponseRedirect('/task/')
+    except Contact.DoesNotExist:
+        return HttpResponseRedirect('/task/')
 
 @permission_required('task.is_member', login_url="/login/")
 def task_success(request, task_id):
-    return
+    try:
+        task = Task.objects.get(id=task_id)
+        member = Contact.objects.get(nickname=request.user.username)
+        jj = Jiangjie.objects.filter(task=task_id, member=member.number).count()
+        xt = Xietiao.objects.filter(task=task_id, member=member.number).count()
+        # 协调员或讲解员在状态2下有权限
+        if (jj != 0 or xt != 0) and task.state == 2:
+            print "why here"
+            task.state = 3;
+            task.save()
+        return HttpResponseRedirect('/task/'+str(task_id)+'/operation/')
+    except Task.DoesNotExist:
+        return HttpResponseRedirect('/task/')
+    except Contact.DoesNotExist:
+        return HttpResponseRedirect('/task/')
 
 
 def db_new_task(formdata, post_nickname):
