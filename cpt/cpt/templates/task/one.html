@@ -10,6 +10,8 @@
 		<div class="span4 ">
 			<h3 class="text-center">任务信息</h3>
 
+			<p><a href="/task/">返回</a></p>
+
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
@@ -18,7 +20,7 @@
 					</tr>
 					<tr>
 						<th><label>日期:</label>	</th>
-						<td><label>{{ result.date }}</label></td>
+						<td><label>{{ result.date|date:"Y年m月d日" }}</label></td>
 					</tr>
 					<tr>
 						<th><label>时间:</label>	</th>
@@ -54,7 +56,7 @@
 					</tr>
 					<tr>
 						<th><label>发布日期:</label>	</th>
-						<td><label>{{ result.post_date }}</label></td>
+						<td><label>{{ result.post_date|date:"Y年m月d日" }}</label></td>
 					</tr>
 					<tr>
 						<th><label>优先级:</label></th>
@@ -76,8 +78,6 @@
 			</table>
 			<label for="id_place">备注:</label>
 			<p >{{ result.note }}</p>
-
-			<p><a href="/task/">返回</a></p>
 		</div>
 		<div class="span4">
 		</div>
