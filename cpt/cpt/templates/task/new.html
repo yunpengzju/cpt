@@ -9,13 +9,13 @@
 		<div class="span4">
 		</div>
 		<div class="span4">
+			<p><a href="/task/">返回</a></p>
+
 			<form action="/task/new/" method="post">
 				{% csrf_token %}
 				{{ form }}
 				<input type="submit" value="创建">
 			</form>
-
-			<p><a href="/task/">返回</a></p>
 		</div>
 		<div class="span4">
 		</div>

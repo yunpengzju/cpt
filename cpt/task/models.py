@@ -12,14 +12,14 @@ class Task(models.Model):
     source      = models.CharField(blank=True, max_length=100, verbose_name='任务来源')
     contact_man = models.CharField(blank=True, max_length=100, verbose_name='联系人称谓')
     contact_way = models.CharField(blank=True, max_length=100, verbose_name='联系方式')
-    post_id     = models.IntegerField(blank=True)
-    post_man    = models.CharField(blank=True, max_length=30, verbose_name='发布者')
-    post_date   = models.DateField(blank=True, null=True, verbose_name='发布日期', auto_now_add=True)
     priority    = models.CharField(blank=True, max_length=30, verbose_name='优先级')
     formal      = models.CharField(blank=True, max_length=30, verbose_name='是否正装')
     note        = models.TextField(blank=True, verbose_name='备注')
     expect_xietiao  = models.CharField(blank=True, max_length=30, verbose_name='协调员预期人数')
     expect_jiangjie = models.CharField(blank=True, max_length=30, verbose_name='讲解员预期人数')
+    post_id     = models.IntegerField()
+    post_man    = models.CharField(max_length=30, verbose_name='发布者')
+    post_date   = models.DateField(verbose_name='发布日期', auto_now_add=True)
     state       = models.IntegerField()
     
     def __unicode__(self):
@@ -32,13 +32,18 @@ class Task(models.Model):
         )
 
 class Xietiao(models.Model):
-    task   = models.ForeignKey(Task)
-    member = models.ForeignKey(Contact)
-    
+    task   = models.IntegerField()
+    member = models.IntegerField()
+
+    def __unicode__(self):
+        return str(self.task) + "," + str(self.member)
 
 class Jiangjie(models.Model):
-    task   = models.ForeignKey(Task)
-    member = models.ForeignKey(Contact)
+    task   = models.IntegerField()
+    member = models.IntegerField()
+
+    def __unicode__(self):
+        return str(self.task) + "," + str(self.member)
 
 from django.forms import ModelForm
 

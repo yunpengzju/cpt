@@ -5,7 +5,9 @@ from cpt import settings
 from recruit.views import recruit_index,recruit_add_info,recruit_edit
 from recruit.views import recruit_admin,recruit_admin_info,recruit_admin_exam,recruit_admin_interview,recruit_admin_presentation
 from contact.views import contact_list, contact_one, contact_me, contact_edit
-from task.views import task_list, task_new, task_one, task_edit, task_manage
+from task.views import task_list, task_new, task_one, task_edit
+from task.views import task_operation, task_close, task_del_jj, task_del_xt
+from task.views import task_jj, task_xt, task_contacted, task_cancel, task_success
 
 from django.contrib.auth.views import login, logout
 # Uncomment the next two lines to enable the admin:
@@ -47,5 +49,13 @@ urlpatterns = patterns('',
     url(r'^task/new/$', task_new),
     url(r'^task/(\d+)/$', task_one),
     url(r'^task/(\d+)/edit/$', task_edit),
-    url(r'^task/(\d+)/manage/$', task_manage),
+    url(r'^task/(\d+)/operation/$', task_operation),
+    url(r'^task/(\d+)/close/$', task_close),
+    url(r'^task/(\d+)/del-jj/(\d+)/$', task_del_jj),
+    url(r'^task/(\d+)/del-xt/(\d+)/$', task_del_xt),
+    url(r'^task/(\d+)/jj/$', task_jj),
+    url(r'^task/(\d+)/xt/$', task_xt),
+    url(r'^task/(\d+)/contacted/$', task_contacted),
+    url(r'^task/(\d+)/cancel/$', task_cancel),
+    url(r'^task/(\d+)/success/$', task_success),
 )
