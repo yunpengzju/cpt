@@ -13,6 +13,8 @@
 			</h3>
 		</div>
 		<div class="span4">
+			<br>
+			<p><a class = "btn btn-info" href="/task/new/">新建任务</a></p>
 		</div>
 	</div>
 </div>
@@ -22,7 +24,6 @@
 		<div class="span3">
 		</div>
 		<div class="span6">
-			<p><a href="/task/new/">新建任务</a></p>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -39,7 +40,7 @@
 						<td>{{ item.title }}</td>
 						<td>{{ item.date|date:"Y年m月d日" }}</td>
 						<td><a href="/contact/{{ item.post_id }}">{{ item.post_man }}</a></td>
-						<td><a href="/task/{{ item.post_id }}">full story</a></td>
+						<td><a href="/task/{{ item.id }}">full story</a></td>
 						<td><a href="/task/{{ item.id }}/operation/">
 							{% ifequal item.state 0 %}
 								接受报名
