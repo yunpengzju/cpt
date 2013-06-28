@@ -5,12 +5,12 @@
 {% block content %}
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span4">
-		</div>
-		<div class="span4 ">
+
+		<div class="span6 ">
+			<center>
 			<h3 class="text-center">任务信息</h3>
 
-			<p>状态：
+			<h5	class="text-center">状态：
 				{% ifequal task.state 0 %}
 					接受报名
 				{% else %}
@@ -28,22 +28,7 @@
 				{% endifequal %}
 				{% endifequal %}
 				{% endifequal %}
-			</p>
-
-			<ul>
-			<p>队员</p>
-				<li><a href="/task/{{ task_id }}/jj/">报名讲解员</a></li>
-				<li><a href="/task/{{ task_id }}/xt/">报名协调员</a></li>
-				<li><a href="/task/">返回</a></li>
-			<p>发布者</p>
-				<li><a href="/task/{{ task_id }}/edit/">修改资料</a></li>
-			<p>管理员</p>
-				<li><a href="/task/{{ task_id }}/close/">截至报名</a></li>
-			<p>讲解员/协调员</p>
-				<li><a href="/task/{{ task_id }}/contacted/">联系完毕</a></li>
-				<li><a href="/task/{{ task_id }}/cancel/">任务取消</a></li>
-				<li><a href="/task/{{ task_id }}/success/">任务完成</a></li>
-			</ul>
+			</h5>
 
 			<p>协调员报名名单</p>
 			<table class="table table-bordered">
@@ -84,11 +69,40 @@
 					{% endfor %}
 				</tbody>
 			</table>
-
+			</center>
 		</div>
-		<div class="span4">
+		<div class="span6">
+			<center>
+			<br>
+			<h4>管理员</h4>
+			<a class = "btn btn-info" href="/task/{{ task_id }}/close/">截至报名</a>
+			<h4>讲解员/协调员</h4>
+			<a class = "btn btn-info" href="/task/{{ task_id }}/contacted/">联系完毕</a>
+			<a class = "btn btn-info" href="/task/{{ task_id }}/cancel/">任务取消</a>
+			<a class = "btn btn-info" href="/task/{{ task_id }}/success/">任务完成</a>
+			<h4>队员</h4>
+			<a class = "btn btn-info" href="/task/{{ task_id }}/jj/">报名讲解员</a>
+			<a class = "btn btn-info" href="/task/{{ task_id }}/xt/">报名协调员</a>
+			<a class = "btn btn-info" href="/task/">返回</a>
+			<h4>发布者</h4>
+			<a class = "btn btn-info" href="/task/{{ task_id }}/edit/">修改资料</a>
+			</center>
 		</div>
 	</div>
 </div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span4">
 
+				</div>
+				<div class="span4">
+				</div>
+				<div class="span4">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
