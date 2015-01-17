@@ -1,5 +1,7 @@
 from django.contrib import admin
-from recruit.models import Recruit,Candidate,Exam,Exam_list,Interview,Interview_list,Presentation,Presentation_list
+from cpt.recruit.models import Recruit, Candidate, Exam, Exam_list, Interview, Interview_list, Presentation, \
+    Presentation_list
+
 admin.site.register(Recruit)
 admin.site.register(Candidate)
 admin.site.register(Exam)

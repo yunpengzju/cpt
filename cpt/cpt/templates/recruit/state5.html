@@ -6,88 +6,88 @@
 <h2 class="text-center">请确认展馆试时间</h2>
 <p class="text-center">{{message}}</p>
 <div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span2">
-		</div>
-		<div class="span8">
-			<div class="progress progress-success progress-striped">
-			  <div class="bar" style="width: 75%"></div>
-			</div>
-		</div>
-		<div class="span2">
-		</div>
-	</div>
+    <div class="row-fluid">
+        <div class="span2">
+        </div>
+        <div class="span8">
+            <div class="progress progress-success progress-striped">
+                <div class="bar" style="width: 75%"></div>
+            </div>
+        </div>
+        <div class="span2">
+        </div>
+    </div>
 </div>
 <div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span2">
-		</div>
-		<div class="span8">
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>
-							编号
-						</th>
-						<th>
-							展馆试时间
-						</th>
-						<th>
-							展馆试地点
-						</th>
-						<th>
-							该场余量
-						</th>
-						<th>
-							备注
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for item in list %}
-					<tr>
-						<td>
-							{{item.id}}
-						</td>
-						<td>
-							{{ item.presentation_time }}
-						</td>
-						<td>
-							{{ item.location }}
-						</td>
-						<td>
-							{{item.max_num}}
-						</td>
-						<td>
-							{{item.note}}
-						</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-		<div class="span2">
-		</div>
-	</div>
+    <div class="row-fluid">
+        <div class="span2">
+        </div>
+        <div class="span8">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        展馆试时间
+                    </th>
+                    <th>
+                        展馆试地点
+                    </th>
+                    <th>
+                        该场余量
+                    </th>
+                    <th>
+                        备注
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in list %}
+                <tr>
+                    <td>
+                        {{item.id}}
+                    </td>
+                    <td>
+                        {{ item.presentation_time }}
+                    </td>
+                    <td>
+                        {{ item.location }}
+                    </td>
+                    <td>
+                        {{item.max_num}}
+                    </td>
+                    <td>
+                        {{item.note}}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="span2">
+        </div>
+    </div>
 </div>
 <div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span4">
-		</div>
-		<div class="span4">
-			<form class="form-inline" action="/join/" method="post">
-			{% csrf_token %}
-			  <select name = "selection">
-			  	{% for item in list %}
-				  <option>{{item.id}}</option>
-				{% endfor %}
-				</select>
-			  <button type="submit" class="btn">确认场次</button>
-			</form>
-		</div>
-		<div class="span4">
-		</div>
-	</div>
-</div>		
+    <div class="row-fluid">
+        <div class="span4">
+        </div>
+        <div class="span4">
+            <form class="form-inline" action="/join/" method="post">
+                {% csrf_token %}
+                <select name="selection">
+                    {% for item in list %}
+                    <option>{{item.id}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn">确认场次</button>
+            </form>
+        </div>
+        <div class="span4">
+        </div>
+    </div>
+</div>
 {{test}}
 {% endblock %}

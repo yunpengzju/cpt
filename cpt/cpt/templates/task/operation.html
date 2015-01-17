@@ -4,105 +4,105 @@
 
 {% block content %}
 <div class="container-fluid">
-	<div class="row-fluid">
+    <div class="row-fluid">
 
-		<div class="span6 ">
-			<center>
-			<h3 class="text-center">任务信息</h3>
+        <div class="span6 ">
+            <center>
+                <h3 class="text-center">任务信息</h3>
 
-			<h5	class="text-center">状态：
-				{% ifequal task.state 0 %}
-					接受报名
-				{% else %}
-				{% ifequal task.state 1 %}
-					报名截至
-				{% else %}
-				{% ifequal task.state 2 %}
-					联系完毕
-				{% else %}
-				{% ifequal task.state 3 %}
-					任务完成
-				{% else %}
-					任务取消
-				{% endifequal %}
-				{% endifequal %}
-				{% endifequal %}
-				{% endifequal %}
-			</h5>
+                <h5 class="text-center">状态：
+                    {% ifequal task.state 0 %}
+                    接受报名
+                    {% else %}
+                    {% ifequal task.state 1 %}
+                    报名截至
+                    {% else %}
+                    {% ifequal task.state 2 %}
+                    联系完毕
+                    {% else %}
+                    {% ifequal task.state 3 %}
+                    任务完成
+                    {% else %}
+                    任务取消
+                    {% endifequal %}
+                    {% endifequal %}
+                    {% endifequal %}
+                    {% endifequal %}
+                </h5>
 
-			<p>协调员报名名单</p>
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>编号</th>
-						<th>姓名</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for item in xietiao %}
-					<tr>
-						<td><a href="/contact/{{ item.member }}">{{ item.member }}</a></td>
-						<td><a href="/contact/{{ item.member }}">{{ item.name }}</a></td>
-						<td><a href="/task/{{ task_id }}/del-xt/{{ item.member }}/">删除</a></td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+                <p>协调员报名名单</p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in xietiao %}
+                    <tr>
+                        <td><a href="/contact/{{ item.member }}">{{ item.member }}</a></td>
+                        <td><a href="/contact/{{ item.member }}">{{ item.name }}</a></td>
+                        <td><a href="/task/{{ task_id }}/del-xt/{{ item.member }}/">删除</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
-			<p>讲解员报名名单</p>
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>编号</th>
-						<th>姓名</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for item in jiangjie %}
-					<tr>
-						<td><a href="/contact/{{ item.member }}">{{ item.member }}</a></td>
-						<td><a href="/contact/{{ item.member }}">{{ item.name }}</a></td>
-						<td><a href="/task/{{ task_id }}/del-jj/{{ item.member }}/">删除</a></td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-			</center>
-		</div>
-		<div class="span6">
-			<center>
-			<br>
-			<h4>管理员</h4>
-			<a class = "btn btn-info" href="/task/{{ task_id }}/close/">截至报名</a>
-			<h4>讲解员/协调员</h4>
-			<a class = "btn btn-info" href="/task/{{ task_id }}/contacted/">联系完毕</a>
-			<a class = "btn btn-info" href="/task/{{ task_id }}/cancel/">任务取消</a>
-			<a class = "btn btn-info" href="/task/{{ task_id }}/success/">任务完成</a>
-			<h4>队员</h4>
-			<a class = "btn btn-info" href="/task/{{ task_id }}/jj/">报名讲解员</a>
-			<a class = "btn btn-info" href="/task/{{ task_id }}/xt/">报名协调员</a>
-			<a class = "btn btn-info" href="/task/">返回</a>
-			<h4>发布者</h4>
-			<a class = "btn btn-info" href="/task/{{ task_id }}/edit/">修改资料</a>
-			</center>
-		</div>
-	</div>
+                <p>讲解员报名名单</p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in jiangjie %}
+                    <tr>
+                        <td><a href="/contact/{{ item.member }}">{{ item.member }}</a></td>
+                        <td><a href="/contact/{{ item.member }}">{{ item.name }}</a></td>
+                        <td><a href="/task/{{ task_id }}/del-jj/{{ item.member }}/">删除</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <div class="span6">
+            <center>
+                <br>
+                <h4>管理员</h4>
+                <a class="btn btn-info" href="/task/{{ task_id }}/close/">截至报名</a>
+                <h4>讲解员/协调员</h4>
+                <a class="btn btn-info" href="/task/{{ task_id }}/contacted/">联系完毕</a>
+                <a class="btn btn-info" href="/task/{{ task_id }}/cancel/">任务取消</a>
+                <a class="btn btn-info" href="/task/{{ task_id }}/success/">任务完成</a>
+                <h4>队员</h4>
+                <a class="btn btn-info" href="/task/{{ task_id }}/jj/">报名讲解员</a>
+                <a class="btn btn-info" href="/task/{{ task_id }}/xt/">报名协调员</a>
+                <a class="btn btn-info" href="/task/">返回</a>
+                <h4>发布者</h4>
+                <a class="btn btn-info" href="/task/{{ task_id }}/edit/">修改资料</a>
+            </center>
+        </div>
+    </div>
 </div>
 <div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
-			<div class="row-fluid">
-				<div class="span4">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span4">
 
-				</div>
-				<div class="span4">
-				</div>
-				<div class="span4">
-				</div>
-			</div>
-		</div>
-	</div>
+                </div>
+                <div class="span4">
+                </div>
+                <div class="span4">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
