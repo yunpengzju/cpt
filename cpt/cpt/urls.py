@@ -10,6 +10,7 @@ from cpt.task.views import task_list, task_new, task_one, task_edit
 from cpt.task.views import task_operation, task_close, task_del_jj, task_del_xt
 from cpt.task.views import task_jj, task_xt, task_contacted, task_cancel, task_success
 
+from cpt.statistic.views import enter
 from django.contrib.auth.views import login, logout
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -21,6 +22,7 @@ urlpatterns = patterns('',
                        # Examples:
                        # url(r'^$', 'cpt.views.home', name='home'),
                        # url(r'^cpt/', include('cpt.foo.urls')),
+                       url(r'^$', enter),
                        url(r'^index/$', views.index),
                        url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
                            {'document_root': settings.STATIC_ROOT}),

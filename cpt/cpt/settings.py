@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'cpt.recruit',
     'cpt.contact',
     'cpt.task',
+    'cpt.statistic',
 )
 
 # A sample logging configuration. The only tangible logging
