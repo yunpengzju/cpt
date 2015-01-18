@@ -2,7 +2,7 @@
 import os.path
 # Django settings for cpt project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
