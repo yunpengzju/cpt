@@ -26,6 +26,8 @@ urlpatterns = patterns('',
                        url(r'^index/$', views.index),
                        url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
                            {'document_root': settings.STATIC_ROOT}),
+                       url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+                           {'document_root': settings.STATIC_ROOT}),
                        # Uncomment the admin/doc line below to enable admin documentation:
                        # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
                        url(r'^register/$', views.register),
