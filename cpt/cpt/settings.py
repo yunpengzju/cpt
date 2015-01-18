@@ -1,3 +1,4 @@
+# coding=utf-8
 import os.path
 # Django settings for cpt project.
 
