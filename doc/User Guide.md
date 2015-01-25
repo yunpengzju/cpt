@@ -64,7 +64,7 @@ SuperUser | 网站全部功能
 ![注册](http://bcs.duapp.com/cptzju/用户手册图片/register.png)  
 [登陆界面](http://zjucpt.duapp.com/login/)  
 ![登陆](http://bcs.duapp.com/cptzju/用户手册图片/login.png)  
-登陆后 
+登陆后  
 ![登陆后](http://bcs.duapp.com/cptzju/用户手册图片/afterlogin.png)  
 [申请界面](http://zjucpt.duapp.com/join/)  
 ![申请](http://bcs.duapp.com/cptzju/用户手册图片/recruit.png)   
@@ -72,9 +72,31 @@ SuperUser | 网站全部功能
 ![申请表格](http://bcs.duapp.com/cptzju/用户手册图片/recruitform.png)  
 [查询申请进度](http://zjucpt.duapp.com/join/)  
 ![申请进度](http://bcs.duapp.com/cptzju/用户手册图片/recruitprocess.png)  
-###4.3，队员
-###4.4，管理员
 
+###4.3，队员
+####4.3.1，通讯录
+队员权限需要管理员在管理界面授权。被分入Member用户组的用户有权访问通讯录界面。但想要将自己的信息加入到通讯录中，还需要在管理界面的Contact表中加入队员信息（目前只有管理员有权限将网站注册用户和队员编号绑定加入Contact表）。  
+[通讯录](http://zjucpt.duapp.com/contact/)  
+![通讯录界面](http://bcs.duapp.com/cptzju/用户手册图片/member/contact.png)  
+
+####4.3.2，任务布置
+具有队员权限的用户可以进入任务布置界面浏览当前任务信息，添加新任务以及申请和处理任务。  
+[任务界面](http://zjucpt.duapp.com/task/)  
+![任务界面](http://bcs.duapp.com/cptzju/用户手册图片/member/tasks.png)  
+
+查看任务详情   
+![任务详情](http://bcs.duapp.com/cptzju/用户手册图片/member/task_info.png)   
+
+申请任务
+![申请任务](http://bcs.duapp.com/cptzju/用户手册图片/member/task_apply.png)
+
+###4.4，管理员
+超级管理员可以在[管理界面](http://zjucpt.duapp.com/admin)中查看网站后台数据，亦可以对用户权限等进行管理。
+####4.4.1，管理用户组  
+![Admin](http://bcs.duapp.com/cptzju/用户手册图片/member/admin.png)
+####4.4.2，管理网站分区
+以纳新管理员为例，其有权进入纳新筛选管理界面。  
+![纳新管理](http://bcs.duapp.com/cptzju/用户手册图片/member/recruit_manager.png)
 
 
 <link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/googlecode.min.css">
