@@ -11,4 +11,5 @@ def enter(request):
     else:
         inst.site_views += 1
         inst.save()
+    finally:
         return HttpResponseRedirect('/index/')
