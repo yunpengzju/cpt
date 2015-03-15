@@ -87,7 +87,7 @@ SuperUser | 网站全部功能
 查看任务详情   
 ![任务详情](http://bcs.duapp.com/cptzju/用户手册图片/member/task_info.png)   
 
-申请任务
+申请任务   
 ![申请任务](http://bcs.duapp.com/cptzju/用户手册图片/member/task_apply.png)
 
 ###4.4，管理员
