@@ -37,10 +37,11 @@
                             <li>
                                 <a href="/task/">Tasks</a>
                             </li>
-                            {% endif %}
+                            {% else %}
                             <li>
                                 <a href="/join/">Join us</a>
                             </li>
+                            {% endif %}
                             {% if user.is_superuser%}
                             <li>
                                 <a href="/join/admin">Recruit Admin</a>

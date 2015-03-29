@@ -59,7 +59,7 @@ def task_edit(request, task_id):
                 form.save()
                 return HttpResponseRedirect('/task/' + str(task_id) + '/')
         else:
-            form = TaskForm(instance=inst);
+            form = TaskForm(instance=inst)
         return render_to_response('task/edit.html', locals(), context_instance=RequestContext(request))
     except Contact.DoesNotExist:
         return HttpResponseRedirect('/task/')
